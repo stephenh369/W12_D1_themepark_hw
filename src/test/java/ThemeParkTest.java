@@ -38,6 +38,13 @@ public class ThemeParkTest {
     }
 
     @Test
+    public void canGetAllReviewedAsHashMap() {
+        assertEquals(2, themePark.getAllReviewedAsHashMap().size());
+        assertEquals(5, themePark.getAllReviewedAsHashMap().get("Dodgems"), 0.01);
+        assertEquals(5, themePark.getAllReviewedAsHashMap().get("Candy Floss"), 0.01);
+    }
+
+    @Test
     public void canVisit() {
         themePark.visit(visitor, dodgems);
         assertEquals(1, visitor.getVisitedAttractions().size());
