@@ -10,12 +10,12 @@ import static org.junit.Assert.assertEquals;
 
 public class PlaygroundTest {
     Playground playground;
-    Visitor visitor;
+    Visitor visitorOverAge;
 
     @Before
     public void setUp() throws Exception {
         playground = new Playground("Fun Zone", 7);
-        visitor = new Visitor(16, 135, 50);
+        visitorOverAge = new Visitor(16, 135, 50);
     }
 
     @Test
@@ -35,6 +35,6 @@ public class PlaygroundTest {
 
     @Test
     public void willNotAllowOver15() {
-        assertEquals(false, playground.isAllowedTo(visitor));
+        assertEquals(false, playground.isAllowedTo(visitorOverAge));
     }
 }
