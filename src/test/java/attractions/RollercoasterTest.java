@@ -20,7 +20,7 @@ public class RollercoasterTest {
         underAgeVisitor = new Visitor(11, 145, 25);
         underHeightVisitor = new Visitor(13, 135, 25);
         underAgeAndHeightVisitor = new Visitor(10, 125, 25);
-        visitor = new Visitor(14, 150, 25);
+        visitor = new Visitor(18, 201, 25);
     }
 
     @Test
@@ -44,5 +44,15 @@ public class RollercoasterTest {
         assertEquals(false, rollerCoaster.isAllowedTo(underHeightVisitor));
         assertEquals(false, rollerCoaster.isAllowedTo(underAgeAndHeightVisitor));
         assertEquals(true, rollerCoaster.isAllowedTo(visitor));
+    }
+
+    @Test
+    public void canGetDefaultPrice() {
+        assertEquals(8.40, rollerCoaster.defaultPrice(), 0.01);
+    }
+
+    @Test
+    public void willChargeDoubleForTall() {
+        assertEquals(16.80, rollerCoaster.priceFor(visitor), 0.01);
     }
 }
