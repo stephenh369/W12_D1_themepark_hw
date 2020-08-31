@@ -2,15 +2,20 @@ package attractions;
 
 import org.junit.Before;
 import org.junit.Test;
+import people.Visitor;
+
+import java.nio.file.FileVisitOption;
 
 import static org.junit.Assert.assertEquals;
 
 public class PlaygroundTest {
     Playground playground;
+    Visitor visitor;
 
     @Before
     public void setUp() throws Exception {
         playground = new Playground("Fun Zone", 7);
+        visitor = new Visitor(16, 135, 50);
     }
 
     @Test
@@ -26,5 +31,10 @@ public class PlaygroundTest {
     @Test
     public void hasVisitCount() {
         assertEquals(0, playground.getVisitCount());
+    }
+
+    @Test
+    public void willNotAllowOver15() {
+        assertEquals(false, playground.isAllowedTo(visitor));
     }
 }
